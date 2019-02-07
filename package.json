@@ -4,8 +4,11 @@
   "description": "A UI clone of the amazon product summary & gallery section on amazon's product page",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Andrew Mitchell",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
 }
