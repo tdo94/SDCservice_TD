@@ -1,0 +1,11 @@
+{
+  "name": "product-summary-component",
+  "version": "0.1.0",
+  "description": "A UI clone of the amazon product summary & gallery section on amazon's product page",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Mitchell",
+  "license": "ISC"
+}
