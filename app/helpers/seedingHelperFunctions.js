@@ -1,4 +1,3 @@
-/* eslint-disable prefer-destructuring */
 const faker = require('faker');
 
 module.exports = {
