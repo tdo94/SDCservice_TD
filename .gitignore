@@ -5,6 +5,10 @@
 config.js
 dist
 
+### Jest ###
+
+*__snapshots__/
+
 ### Node ###
 # Logs
 logs
