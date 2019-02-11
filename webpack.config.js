@@ -6,10 +6,12 @@ module.exports = {
   entry: `${__dirname}/src/index.jsx`,
   output: {
     path: `${__dirname}/dist`,
+    publicPath: '/',
     filename: 'bundle.js',
   },
   devServer: {
     contentBase: './dist',
+    historyApiFallback: true,
   },
   module: {
     rules: [
