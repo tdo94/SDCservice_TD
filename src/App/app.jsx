@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Section, Paragraph } from './app.style';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,9 +16,12 @@ export default class App extends React.Component {
   render() {
     const { product } = this.state;
     return (
-      <div>
-        <h1>{product.name}</h1>
-      </div>
+      <Section>
+        <Paragraph>
+          {product.name}
+          Look at my buttons, they are amazing buttons !
+        </Paragraph>
+      </Section>
     );
   }
 }
