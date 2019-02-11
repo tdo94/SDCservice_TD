@@ -5,7 +5,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './app.jsx';
 
-describe('MyComponent', () => {
+describe('App Component', () => {
   it('should render correctly with no props', () => {
     const component = shallow(<App />);
     expect(component).toMatchSnapshot();
