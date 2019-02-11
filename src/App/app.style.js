@@ -5,13 +5,15 @@ export const ColContainer = styled.div`
   height: 90vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   border: solid black 3px;
 `;
 
-
 export const RowContainer = styled.div`
-  width: 100%;
-  padding: 10px;
+  width: 98%;
+  height: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
