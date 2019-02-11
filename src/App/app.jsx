@@ -1,6 +1,9 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 
-import { Section, Paragraph } from './app.style';
+import Summary from './Summary/summary.jsx';
+import Gallery from './Gallery/gallery.jsx';
+import { ColContainer, RowContainer } from './app.style';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,12 +19,14 @@ export default class App extends React.Component {
   render() {
     const { product } = this.state;
     return (
-      <Section>
-        <Paragraph>
-          {product.name}
-          Look at my buttons, they are amazing buttons !
-        </Paragraph>
-      </Section>
+      <ColContainer>
+        App Comp:
+        {product.name}
+        <RowContainer>
+          <Summary />
+          <Gallery />
+        </RowContainer>
+      </ColContainer>
     );
   }
 }
