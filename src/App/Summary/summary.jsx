@@ -1,9 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container } from './summary.style';
 
-export default () => (
+const Summary = ({ name }) => (
   <Container>
-    Summary Comp
+    {name}
   </Container>
 );
+
+Summary.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export default Summary;

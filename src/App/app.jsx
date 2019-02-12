@@ -11,7 +11,6 @@ import { ColContainer, RowContainer } from './app.style';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       product: {
         name: 'test',
@@ -22,8 +21,10 @@ export default class App extends React.Component {
   componentDidMount() {
     const id = document.URL.split('/')[document.URL.split('/').length - 1];
     Axios.get(`http://localhost:3001/api/products/${id}`)
-      .then((data) => {
-        console.log(data.data);
+      .then(({ data }) => {
+        this.setState({
+          product: data,
+        });
       });
   }
 
@@ -31,12 +32,10 @@ export default class App extends React.Component {
     const { product } = this.state;
     return (
       <ColContainer>
-        App Comp:
-        {product.name}
         <CategoryBreadcrumb />
         <RowContainer>
           <Gallery />
-          <Summary />
+          <Summary name={product.name} />
         </RowContainer>
       </ColContainer>
     );
