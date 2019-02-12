@@ -20,12 +20,20 @@ export default class App extends React.Component {
 
   componentDidMount() {
     const id = document.URL.split('/')[document.URL.split('/').length - 1];
-    Axios.get(`http://localhost:3001/api/products/${id}`)
-      .then(({ data }) => {
-        this.setState({
-          product: data,
-        });
+    const product = JSON.parse(localStorage.getItem(id));
+    if (product !== null) {
+      this.setState({
+        product,
       });
+    } else {
+      Axios.get(`http://localhost:3001/api/products/${id}`)
+        .then(({ data }) => {
+          localStorage.setItem(id, JSON.stringify(data));
+          this.setState({
+            product: data,
+          });
+        });
+    }
   }
 
   render() {
