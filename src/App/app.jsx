@@ -35,7 +35,9 @@ export default class App extends React.Component {
         <CategoryBreadcrumb />
         <RowContainer>
           <Gallery />
-          <Summary name={product.name} />
+          <Summary
+            product={product}
+          />
         </RowContainer>
       </ColContainer>
     );

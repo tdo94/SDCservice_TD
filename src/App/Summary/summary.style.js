@@ -6,5 +6,20 @@ export const Container = styled.div`
   min-height: 500px;
   display: flex;
   flex-direction: column;
-  border: solid red 2px;
+  font-family: "Lato", serif;
+`;
+
+export const Title = styled.div`
+  h5 {
+    font-size: 21px;
+    margin: 0px;
+  }
+  p {
+    font-size: 13px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    span {
+      color: #0066c0;
+    }
+  }
 `;
