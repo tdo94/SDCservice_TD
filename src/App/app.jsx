@@ -1,5 +1,7 @@
+/* eslint-env browser */
 /* eslint-disable import/extensions */
 import React from 'react';
+import Axios from 'axios';
 
 import Summary from './Summary/summary.jsx';
 import Gallery from './Gallery/gallery.jsx';
@@ -15,6 +17,14 @@ export default class App extends React.Component {
         name: 'test',
       },
     };
+  }
+
+  componentDidMount() {
+    const id = document.URL.split('/')[document.URL.split('/').length - 1];
+    Axios.get(`http://localhost:3001/api/products/${id}`)
+      .then((data) => {
+        console.log(data.data);
+      });
   }
 
   render() {

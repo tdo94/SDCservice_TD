@@ -15,7 +15,7 @@ const getOne = async (id) => {
   await client.connect();
   const res = await client.query(`
     SELECT * FROM products
-    WHERE products.id = ${id}
+    WHERE products.unique_id = ${id}
   `);
   client.end();
   return res;

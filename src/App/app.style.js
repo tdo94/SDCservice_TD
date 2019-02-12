@@ -6,7 +6,6 @@ export const ColContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid black 3px;
 `;
 
 export const RowContainer = styled.div`
