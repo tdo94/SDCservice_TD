@@ -98,3 +98,35 @@ export const Price = styled.div`
     }
   }
 `;
+
+export const Description = styled.ul`
+  padding: 0px;
+  margin-left: 15px;
+  font-size: 9px;
+  li {
+    padding-left: 3px;
+    color: #949494;
+    span {
+      color: black;
+    }
+  }
+`;
+
+export const Links = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 9px;
+  a {
+    text-decoration: none;
+    color: #0066c0;
+  }
+  a:hover {
+    color: #c45500;
+    text-decoration: underline;
+  }
+  img {
+    height: 13px;
+  }
+`;

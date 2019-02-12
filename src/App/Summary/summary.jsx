@@ -6,10 +6,25 @@ import {
   Title,
   Stats,
   Price,
+  Description,
+  Links,
 } from './summary.style';
 
 const Summary = ({ product }) => {
   const priceStrikeThrough = <span className="strikeThrough">{`$${product.price - 0.01}`}</span>;
+  const newDescriptionArr = [];
+  let newDescription;
+  if (product.description) {
+    newDescription = product.description
+      .replace('\n', '')
+      .split('.');
+    for (let i = 0; i < newDescription.length; i += 1) {
+      newDescription[i] = newDescription[i].replace(/^\s+|\s+$/g, '');
+      if (newDescription[i] !== '') {
+        newDescriptionArr.push(<li key={i}><span>{newDescription[i]}</span></li>);
+      }
+    }
+  }
   return (
     <Container>
       <Title>
@@ -28,7 +43,7 @@ const Summary = ({ product }) => {
           <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
           <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
           <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
-          <img className="carrot" src="https://s3.us-east-2.amazonaws.com/product-summary-component/downCarrot.png" alt="material carrot"/>
+          <img className="carrot" src="https://s3.us-east-2.amazonaws.com/product-summary-component/downCarrot.png" alt="material carrot" />
         </div>
         <a className="reviews" href="?">{`${product.review_count} customer reviews`}</a>
         <span> | </span>
@@ -50,6 +65,21 @@ const Summary = ({ product }) => {
           </p>
         </div>
       </Price>
+      <Description>
+        {newDescriptionArr}
+      </Description>
+      <Links>
+        <a href="#top">
+          <strong>New</strong>
+          {` (1) from $${product.price - 0.01}`}
+        </a>
+        {product.is_prime ? <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/primeLogo.png" alt="prime Logo" /> : ''}
+      </Links>
+      <Links>
+        <a href="#top">
+          Report incorrect product information.
+        </a>
+      </Links>
     </Container>
   );
 };
