@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Product Gallery & Summary</title>
-  <link rel="stylesheet" href="https://yarnpkg.com/en/package/normalize.css">
-</head>
-<body>
-  <div id="app"></div>
-  <script src="bundle.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Gallery & Summary</title>
+    <link href="https://yarnpkg.com/en/package/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      if (window.location.pathname !== '/products/1') {
+        window.location = '/products/1';
+      }  
+    </script>
+    <script src="bundle.js"></script>
+  </body>
 </html>

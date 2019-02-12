@@ -2,13 +2,26 @@ const { Client } = require('pg');
 
 const { database } = require('../../config');
 
-const client = new Client(database);
-
 const getAll = async () => {
+  const client = new Client(database);
   await client.connect();
-  return client.query('SELECT * FROM products');
+  const res = await client.query('SELECT * FROM products');
+  client.end();
+  return res;
+};
+
+const getOne = async (id) => {
+  const client = new Client(database);
+  await client.connect();
+  const res = await client.query(`
+    SELECT * FROM products
+    WHERE products.unique_id = ${id}
+  `);
+  client.end();
+  return res;
 };
 
 module.exports = {
   getAll,
+  getOne,
 };
