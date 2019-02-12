@@ -4,7 +4,7 @@
   "description": "A UI clone of the amazon product summary & gallery section on amazon's product page",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage --reporters default jest-stare",
     "start": "node server.js",
     "devStart": "nodemon server.js",
     "devServer": "webpack-dev-server --open",
@@ -17,6 +17,9 @@
     "setupFiles": [
       "./src/setupTests.js"
     ]
+  },
+  "jest-stare": {
+    "coverageLink": "../../coverage/lcov-report/index.html"
   },
   "author": "Andrew Mitchell",
   "license": "ISC",
@@ -39,6 +42,7 @@
     "jest": "^24.1.0",
     "jest-environment-enzyme": "^7.0.1",
     "jest-enzyme": "^7.0.1",
+    "jest-stare": "^1.11.1",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"

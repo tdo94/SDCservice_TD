@@ -8,6 +8,8 @@ dist
 ### Jest ###
 
 *__snapshots__/
+coverage
+jest-stare
 
 ### Node ###
 # Logs
