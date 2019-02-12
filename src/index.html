@@ -10,7 +10,11 @@
   </head>
   <body>
     <div id="app"></div>
-    <script>window.history.pushState("", "", 'products/1');</script>
+    <script>
+      if (window.location.pathname !== '/products/1') {
+        window.location = '/products/1';
+      }  
+    </script>
     <script src="bundle.js"></script>
   </body>
 </html>

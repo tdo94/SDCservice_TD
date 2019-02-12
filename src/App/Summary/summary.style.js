@@ -11,15 +11,90 @@ export const Container = styled.div`
 
 export const Title = styled.div`
   h5 {
-    font-size: 21px;
+    font-size: 17px;
     margin: 0px;
   }
+  a {
+    color: #0066c0;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #c45500;
+    text-decoration: underline;
+  }
   p {
-    font-size: 13px;
+    font-size: 9px;
     margin-top: 1px;
     margin-bottom: 1px;
     span {
       color: #0066c0;
+    }
+  }
+`;
+
+export const Stats = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  a {
+    color: #0066c0;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #c45500;
+    text-decoration: underline;
+  }
+  a, span {
+    margin-left: 2px;
+    font-size: 9px;
+  }
+  img {
+    height: 12px;
+  }
+  div.stars {
+    cursor: pointer;
+  }
+  img.carrot {
+    margin-right: 3px;
+    margin-left: 2px;
+  }
+`;
+
+export const Price = styled.div`
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  div.price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    p {
+      font-size: 9px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-right: 4px;
+    }
+    span.priceNum {
+      font-size: 13px;
+      color: #B12704;
+    }
+    img {
+      height: 13px;
+    }
+  }
+  div.discoverBonus {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    p {
+      font-size: 9px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    span.strikeThrough {
+      text-decoration: line-through;
     }
   }
 `;

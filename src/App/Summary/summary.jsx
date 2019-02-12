@@ -1,21 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Title } from './summary.style';
+import {
+  Container,
+  Title,
+  Stats,
+  Price,
+} from './summary.style';
 
-const Summary = ({ product }) => (
-  <Container>
-    <Title>
-      <h5>{product.name}</h5>
-      <p>
-        by
-        <span>
-          {` ${product.manufacturer}`}
-        </span>
-      </p>
-    </Title>
-  </Container>
-);
+const Summary = ({ product }) => {
+  const priceStrikeThrough = <span className="strikeThrough">{`$${product.price - 0.01}`}</span>;
+  return (
+    <Container>
+      <Title>
+        <h5>{product.name}</h5>
+        <p>
+          by
+          <a href="?">
+            {` ${product.manufacturer}`}
+          </a>
+        </p>
+      </Title>
+      <Stats>
+        <div className="stars">
+          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
+          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
+          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
+          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
+          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
+          <img className="carrot" src="https://s3.us-east-2.amazonaws.com/product-summary-component/downCarrot.png" alt="material carrot"/>
+        </div>
+        <a className="reviews" href="?">{`${product.review_count} customer reviews`}</a>
+        <span> | </span>
+        <a className="questions" href="?">{`${product.question_count} answered questions`}</a>
+      </Stats>
+      <Price>
+        <div className="price">
+          <p>
+            Price:
+          </p>
+          <span className="priceNum">{` $${product.price - 0.01}`}</span>
+          {product.is_prime ? <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/primeLogo.png" alt="prime Logo" /> : ''}
+        </div>
+        <div className="discoverBonus">
+          <p>
+            {'Pay '}
+            { priceStrikeThrough }
+            {` ${product.price - 10.01} after using available Discover Cashback Bonus®.`}
+          </p>
+        </div>
+      </Price>
+    </Container>
+  );
+};
 
 Summary.propTypes = {
   product: PropTypes.shape({
