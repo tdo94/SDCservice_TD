@@ -16,6 +16,15 @@
     ],
     "setupFiles": [
       "./src/setupTests.js"
+    ],
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter", 
+        {
+          "pageTitle": "Test Report"
+        }
+      ]
     ]
   },
   "author": "Andrew Mitchell",
@@ -39,6 +48,7 @@
     "jest": "^24.1.0",
     "jest-environment-enzyme": "^7.0.1",
     "jest-enzyme": "^7.0.1",
+    "jest-html-reporter": "^2.4.4",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
