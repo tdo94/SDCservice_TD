@@ -17,11 +17,7 @@ const CategoryBreadcrumb = ({ category }) => {
 };
 
 CategoryBreadcrumb.propTypes = {
-  category: PropTypes.string,
-};
-
-CategoryBreadcrumb.defaultProps = {
-  category: 'electronics',
+  category: PropTypes.string.isRequired,
 };
 
 export default CategoryBreadcrumb;
