@@ -40,7 +40,9 @@ export default class App extends React.Component {
     const { product } = this.state;
     return (
       <ColContainer>
-        <CategoryBreadcrumb />
+        <CategoryBreadcrumb
+          category={product.category}
+        />
         <RowContainer>
           <Gallery />
           <Summary
