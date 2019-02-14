@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container } from './Gallery-Image.style';
 
-export default () => {
-  const text = 'gallery image goes here';
-  return (
-    <Container>
-      <div>
-        {text}
-      </div>
-    </Container>
-  );
+const GalleryImage = ({ image }) => (
+  <Container>
+    <div>
+      <img src={image} alt="example" />
+    </div>
+  </Container>
+);
+
+GalleryImage.propTypes = {
+  image: PropTypes.string.isRequired,
 };
+
+export default GalleryImage;

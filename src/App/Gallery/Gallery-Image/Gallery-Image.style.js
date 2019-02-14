@@ -6,5 +6,7 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: solid red 1px;
+  img {
+    max-width: 100%;
+  }
 `;
