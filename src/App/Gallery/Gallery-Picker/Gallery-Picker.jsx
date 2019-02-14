@@ -1,14 +1,33 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container } from './Gallery-Picker.style';
 
-export default () => {
-  const text = 'Gallery Picker Goes here';
+const GalleryPicker = ({ images, handleImageHover }) => {
+  const imagesDivs = images.map((value, index) => (
+    <div key={value}>
+      <img
+        onMouseOver={handleImageHover}
+        onFocus={handleImageHover}
+        id={`pickerImage-${index}`}
+        className="pickerImage"
+        src={value}
+        alt={`${index}`}
+      />
+    </div>
+  ));
   return (
     <Container>
-      <div>
-        {text}
-      </div>
+      {imagesDivs}
     </Container>
   );
 };
+
+GalleryPicker.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleImageHover: PropTypes.func.isRequired,
+};
+
+export default GalleryPicker;

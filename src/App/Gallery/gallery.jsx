@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -12,14 +13,35 @@ export default class Gallery extends React.Component {
     this.state = {
       currentImg: props.images[0],
     };
+
+    this.handleImageHover = this.handleImageHover.bind(this);
+  }
+
+  handleImageHover(event) {
+    const selectedImageId = event.target.id.split('-')[1];
+    const images = document.querySelectorAll('img.pickerImage');
+    images.forEach((image) => {
+      if (image.id.split('-')[1] === selectedImageId) {
+        this.setState({
+          currentImg: image.src,
+        });
+      }
+      image.classList.toggle('selected', image.id.split('-')[1] === selectedImageId);
+    });
   }
 
   render() {
     const { currentImg } = this.state;
     const { images } = this.props;
+    if (images.length === 1) {
+      images.push('https://s3.us-east-2.amazonaws.com/product-summary-component/electronics2.jpg');
+    }
     return (
       <Container>
-        <GalleryPicker images={images} />
+        <GalleryPicker
+          images={images}
+          handleImageHover={this.handleImageHover}
+        />
         <GalleryImage image={currentImg} />
       </Container>
     );

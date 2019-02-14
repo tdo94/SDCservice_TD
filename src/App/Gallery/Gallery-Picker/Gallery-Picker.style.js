@@ -6,5 +6,22 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: solid red 1px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  img {
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 95%;
+    border: .5px solid black;
+  }
+  img:hover {
+    border-color: #e77600;
+    box-shadow: 0px 0px 2px 1px #e77600;
+  }
+  img.selected {
+    border-color: #e77600;
+    box-shadow: 0px 0px 2px 1px #e77600;
+  }
 `;
