@@ -10,7 +10,7 @@ describe('GalleryPicker Component', () => {
   let wrapper;
   let testVar = false;
   const requiredProps = {
-    images: ['test', 'test', 'test'],
+    images: ['http://lorempixel.com/400/200/', 'http://lorempixel.com/400/200/', 'http://lorempixel.com/400/200/'],
     handleImageHover: () => {
       testVar = true;
       return true;
