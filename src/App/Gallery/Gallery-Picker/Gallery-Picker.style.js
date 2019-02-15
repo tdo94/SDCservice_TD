@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 // eslint-disable-next-line import/prefer-default-export
 export const Container = styled.div`
-  width: 15%;
+  width: 40px;
   height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-right: 10px;
   img {
     cursor: pointer;
     border-radius: 2px;
-    margin-top: 5px;
     margin-bottom: 5px;
-    width: 95%;
+    width: 40px;
     border: .5px solid black;
   }
   img:hover {

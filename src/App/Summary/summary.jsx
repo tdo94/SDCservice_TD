@@ -26,7 +26,7 @@ const Summary = ({ product }) => {
     }
   }
   return (
-    <Container>
+    <Container id="summaryCont">
       <Title>
         <h5>{product.name}</h5>
         <p>
@@ -70,6 +70,11 @@ const Summary = ({ product }) => {
       </Description>
       <Links>
         <a href="#top">
+          Compare with similar items
+        </a>
+      </Links>
+      <Links>
+        <a href="#top">
           <strong>New</strong>
           {` (1) from $${product.price - 0.01}`}
         </a>
@@ -80,6 +85,7 @@ const Summary = ({ product }) => {
           Report incorrect product information.
         </a>
       </Links>
+      <img className="ad" src="https://images-na.ssl-images-amazon.com/images/G/01/campus/DowntownSanJose/SanJoseState._CB512681958_.png" alt="Advert" />
     </Container>
   );
 };
