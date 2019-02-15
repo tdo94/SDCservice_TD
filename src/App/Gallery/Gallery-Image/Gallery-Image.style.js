@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 // eslint-disable-next-line import/prefer-default-export
 export const Container = styled.div`
-  width: 82%;
+  width: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
