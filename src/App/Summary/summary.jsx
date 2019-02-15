@@ -85,6 +85,7 @@ const Summary = ({ product }) => {
           Report incorrect product information.
         </a>
       </Links>
+      <img className="ad" src="https://images-na.ssl-images-amazon.com/images/G/01/campus/DowntownSanJose/SanJoseState._CB512681958_.png" alt="Advert" />
     </Container>
   );
 };

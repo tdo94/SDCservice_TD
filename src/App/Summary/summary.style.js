@@ -3,10 +3,13 @@ import styled from 'styled-components';
 // eslint-disable-next-line import/prefer-default-export
 export const Container = styled.div`
   width: 53%;
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   font-family: "Lato", serif;
+  img.ad {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.div`
