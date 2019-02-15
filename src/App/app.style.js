@@ -11,7 +11,6 @@ export const ColContainer = styled.div`
 export const RowContainer = styled.div`
   width: 98%;
   height: 90%;
-  padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
   flex-direction: row;

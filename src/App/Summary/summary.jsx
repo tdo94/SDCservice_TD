@@ -61,7 +61,7 @@ const Summary = ({ product }) => {
           <p>
             {'Pay '}
             { priceStrikeThrough }
-            {` ${product.price - 10.01} after using available Discover Cashback Bonus®.`}
+            {` $${product.price - 10.01} after using available Discover Cashback Bonus®.`}
           </p>
         </div>
       </Price>

@@ -9,6 +9,9 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
   },
+  resolve: {
+    extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'],
+  },
   devServer: {
     contentBase: './dist',
     historyApiFallback: true,
