@@ -9,6 +9,7 @@ import {
   Description,
   Links,
 } from './summary.style';
+import Stars from './Stars/Stars';
 
 const Summary = ({ product }) => {
   const newDescriptionArr = [];
@@ -21,6 +22,16 @@ const Summary = ({ product }) => {
       newDescriptionArr.push(<li key={i}><span>{newDescription[i]}</span></li>);
     }
   }
+  const ratingAverage = () => {
+    return (
+      ((product.review_one_star_count)
+      + (product.review_two_star_count * 2)
+      + (product.review_three_star_count * 3)
+      + (product.review_four_star_count * 4)
+      + (product.review_five_star_count * 5))
+      / product.review_count
+    );
+  };
   return (
     <Container id="summaryCont">
       <Title>
@@ -34,11 +45,7 @@ const Summary = ({ product }) => {
       </Title>
       <Stats>
         <div className="stars">
-          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
-          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
-          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
-          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
-          <img src="https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png" alt="amazon-star" />
+          <Stars rating={ratingAverage()} />
           <img className="carrot" src="https://s3.us-east-2.amazonaws.com/product-summary-component/downCarrot.png" alt="material carrot" />
         </div>
         <a className="reviews" href="?">{`${product.review_count} customer reviews`}</a>
