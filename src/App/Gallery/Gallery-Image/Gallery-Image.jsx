@@ -97,6 +97,7 @@ class GalleryImage extends React.Component {
         )
           : ''
          }
+        <p>Roll over image to zoom in</p>
       </Container>
     );
   }

@@ -6,7 +6,13 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   img {
     max-width: 100%;
+  }
+  p {
+    font-family: lato, sans-serif;
+    font-size: 9px;
+    text-align: center;
   }
 `;
