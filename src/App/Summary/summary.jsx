@@ -11,7 +11,6 @@ import {
 } from './summary.style';
 
 const Summary = ({ product }) => {
-  const priceStrikeThrough = <span className="strikeThrough">{`$${product.price - 0.01}`}</span>;
   const newDescriptionArr = [];
   const newDescription = product.description
     .replace('\n', '')
@@ -57,7 +56,7 @@ const Summary = ({ product }) => {
         <div className="discoverBonus">
           <p>
             {'Pay '}
-            { priceStrikeThrough }
+            { <span className="strikeThrough">{`$${product.price - 0.01}`}</span> }
             {` $${product.price - 10.01} after using available Discover Cashback Bonus®.`}
           </p>
         </div>
