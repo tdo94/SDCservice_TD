@@ -70,6 +70,11 @@ const Summary = ({ product }) => {
       </Description>
       <Links>
         <a href="#top">
+          Compare with similar items
+        </a>
+      </Links>
+      <Links>
+        <a href="#top">
           <strong>New</strong>
           {` (1) from $${product.price - 0.01}`}
         </a>
