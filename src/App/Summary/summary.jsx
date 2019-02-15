@@ -26,7 +26,7 @@ const Summary = ({ product }) => {
     }
   }
   return (
-    <Container>
+    <Container id="summaryCont">
       <Title>
         <h5>{product.name}</h5>
         <p>
