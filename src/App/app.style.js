@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const ColContainer = styled.div`
-  width: 80vw;
-  height: 90vh;
+  width: 90vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
