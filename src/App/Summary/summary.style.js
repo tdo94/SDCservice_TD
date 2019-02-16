@@ -28,7 +28,7 @@ export const Title = styled.div`
   p {
     font-size: 9px;
     margin-top: 1px;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     span {
       color: #0066c0;
     }
@@ -56,6 +56,9 @@ export const Stats = styled.div`
   }
   div.stars {
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   img.carrot {
     margin-right: 3px;

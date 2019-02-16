@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Container } from './Stars.style';
+
 const Stars = ({ rating }) => {
-  console.log(rating);
   const starImg = {
     full: 'https://s3.us-east-2.amazonaws.com/product-summary-component/fullStar.png',
     half: 'https://s3.us-east-2.amazonaws.com/product-summary-component/halfStar.png',
@@ -19,14 +20,14 @@ const Stars = ({ rating }) => {
     }
   }
   return (
-    <div>
+    <Container>
       {stars}
-    </div>
+    </Container>
   );
 };
 
 Stars.propTypes = {
   rating: PropTypes.number.isRequired,
-}
+};
 
 export default Stars;

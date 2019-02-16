@@ -22,16 +22,15 @@ const Summary = ({ product }) => {
       newDescriptionArr.push(<li key={i}><span>{newDescription[i]}</span></li>);
     }
   }
-  const ratingAverage = () => {
-    return (
-      ((product.review_one_star_count)
-      + (product.review_two_star_count * 2)
-      + (product.review_three_star_count * 3)
-      + (product.review_four_star_count * 4)
-      + (product.review_five_star_count * 5))
-      / product.review_count
-    );
-  };
+  const ratingAverage = () => (
+    ((product.review_one_star_count)
+    + (product.review_two_star_count * 2)
+    + (product.review_three_star_count * 3)
+    + (product.review_four_star_count * 4)
+    + (product.review_five_star_count * 5))
+    / product.review_count
+  );
+
   return (
     <Container id="summaryCont">
       <Title>
