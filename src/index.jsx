@@ -7,5 +7,5 @@ import App from './App/app.jsx';
 
 ReactDOM.render(
   <App />,
-  document.querySelector('#app'),
+  document.querySelector('#product-gallery-summary'),
 );
