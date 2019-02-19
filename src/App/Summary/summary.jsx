@@ -17,13 +17,40 @@ class Summary extends React.Component {
     super(props);
 
     this.state = {
-      ratingsTooltip: false,
+      mouseOverStars: false,
+      mouseOverTooltip: false,
+      inTransistion: false,
     };
+
+    this.onMouseOverStars = this.onMouseOverStars.bind(this);
+    this.onMouseOverTooltip = this.onMouseOverTooltip.bind(this);
+  }
+
+  onMouseOverStars() {
+    this.setState(
+      ({ mouseOverTooltip }) => ({ mouseOverTooltip: !mouseOverTooltip, inTransistion: true }),
+      () => {
+        setTimeout(
+          () => {
+            this.setState({
+              inTransistion: false,
+            });
+          },
+          500,
+        );
+      },
+    );
+  }
+
+  onMouseOverTooltip() {
+    this.setState(
+      ({ mouseOverTooltip }) => ({ mouseOverTooltip: !mouseOverTooltip }),
+    );
   }
 
   render() {
     const { product } = this.props;
-    const { ratingsTooltip } = this.state;
+    const { mouseOverTooltip, mouseOverStars, inTransistion } = this.state;
     const newDescriptionArr = [];
     const newDescription = product.description
       .replace('\n', '')
@@ -54,11 +81,17 @@ class Summary extends React.Component {
           </p>
         </Title>
         <Stats>
-          <div className="stars" ref={`${product.review_count}`}>
+          <div
+            className="stars"
+            onMouseEnter={this.onMouseOverStars}
+            onMouseLeave={this.onMouseOverStars}
+          >
             <Stars rating={ratingAverage()} />
             <img className="carrot" src="https://s3.us-east-2.amazonaws.com/product-summary-component/downCarrot.png" alt="material carrot" />
-            { ratingsTooltip ? (
+            { mouseOverStars || mouseOverTooltip || inTransistion ? (
               <StarTooltip
+                onMouseEnter={this.onMouseOverTooltip}
+                onMouseLeave={this.onMouseOverTooltip}
                 ratingAvg={ratingAverage()}
                 ratingsObj={
                   {
