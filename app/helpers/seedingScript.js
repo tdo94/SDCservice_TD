@@ -46,13 +46,14 @@ async function seedScript() {
 
       mockData.push(client.query({ text: createProductQuery, values }));
     }
-    const newRes = await Promise.all(mockData);
-    console.log('newRes:', newRes);
+    await Promise.all(mockData);
+    // console.log('newRes:', newRes);
   } catch (err) {
-    console.log(err.stack);
+    // console.log(err.stack);
   }
 
   await client.end();
 }
 
 seedScript();
+module.exports = seedScript;

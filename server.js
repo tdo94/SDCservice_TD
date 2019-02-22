@@ -2,21 +2,33 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const compression = require('compression');
 
 const app = express();
 
 const productRoutes = require('./app/controllers/productRoutes');
 
-app.use(morgan('dev'));
+const seedScript = require('./app/helpers/seedingScript');
+
+seedScript();
+
+app.use(compression());
 app.use(bodyParser.json());
 
 app.use(express.static(`${__dirname}/dist`));
 app.use('/api/products', cors(), productRoutes);
 
-app.get('*', (request, response) => {
-  response.sendFile(`${__dirname}/dist/index.html`);
+app.get('/api/bundle', (req, res) => {
+  res.sendFile(`${__dirname}/dist/bundle.js`);
 });
 
+app.get('/products/:id', (req, res) => {
+  res.sendFile(`${__dirname}/dist/index.html`);
+});
 
-app.listen(3001);
-console.log('Listening on localhost:3001');
+app.get('*', (req, res) => {
+  res.redirect('/products/1');
+});
+
+app.listen(80);
+console.log('Listening on localhost:80');

@@ -11,6 +11,10 @@ dist
 coverage
 jest-stare
 
+## Docker 
+
+docker-compose.yml
+
 ### Node ###
 # Logs
 logs
