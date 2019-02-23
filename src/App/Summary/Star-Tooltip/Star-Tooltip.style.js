@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
-  width: 177px;
+  width: 200px;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: lato, sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   padding: 8px;
   opacity: 1;
   border-radius: 4px;
@@ -16,6 +16,12 @@ export const Container = styled.div`
   overflow: hidden;
   border: 1px solid #cdcdcd;
   border-color: rgba(0,0,0,.2);
+  div.topRow {
+    margin-bottom: 10px;
+  }
+  div.bottomRow {
+    margin-top: 10px;
+  }
   div.row {
     display: flex;
     flex-direction: row;
@@ -24,15 +30,26 @@ export const Container = styled.div`
     width: 100%;
     padding-bottom: 1px;
   }
+  a {
+    font-size: 13px;
+    color: #0066c0;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #c45500;
+    text-decoration: underline;
+  }
   p {
+    min-width: 25px;
     margin: 0;
     padding: 0;
+    text-align: right;
   }
 `;
 
 export const Bar = styled.div`
   width: 122px;
-  height: 17px;
+  height: 19px;
   border-radius: 1px;
   background: linear-gradient(to bottom,#eee,#f6f6f6);
   background-color: #f3f3f3;

@@ -20,37 +20,66 @@ class Summary extends React.Component {
       mouseOverStars: false,
       mouseOverTooltip: false,
       inTransistion: false,
+      animationCounter: 0,
     };
 
     this.onMouseOverStars = this.onMouseOverStars.bind(this);
+    this.onMouseLeaveStars = this.onMouseLeaveStars.bind(this);
     this.onMouseOverTooltip = this.onMouseOverTooltip.bind(this);
+    this.onMouseLeaveTooltip = this.onMouseLeaveTooltip.bind(this);
   }
 
   onMouseOverStars() {
     this.setState(
-      ({ mouseOverTooltip }) => ({ mouseOverTooltip: !mouseOverTooltip, inTransistion: true }),
+      ({ animationCounter }) => ({
+        animationCounter: animationCounter + 1,
+        mouseOverTooltip: true,
+        inTransistion: false,
+      }),
+    );
+  }
+
+  onMouseLeaveStars() {
+    this.setState(
+      ({ animationCounter }) => ({
+        animationCounter: animationCounter + 1,
+        mouseOverTooltip: false,
+        inTransistion: true,
+      }),
       () => {
         setTimeout(
           () => {
             this.setState({
+              animationCounter: 2,
               inTransistion: false,
             });
           },
-          500,
+          250,
         );
       },
     );
   }
 
+
   onMouseOverTooltip() {
-    this.setState(
-      ({ mouseOverTooltip }) => ({ mouseOverTooltip: !mouseOverTooltip }),
-    );
+    this.setState({ mouseOverTooltip: true });
+  }
+
+  onMouseLeaveTooltip() {
+    this.setState({
+      mouseOverTooltip: false,
+      animationCounter: 0,
+    });
   }
 
   render() {
     const { product } = this.props;
-    const { mouseOverTooltip, mouseOverStars, inTransistion } = this.state;
+    const {
+      mouseOverTooltip,
+      mouseOverStars,
+      inTransistion,
+      animationCounter,
+    } = this.state;
     const newDescriptionArr = [];
     const newDescription = product.description
       .replace('\n', '')
@@ -84,14 +113,18 @@ class Summary extends React.Component {
           <div
             className="stars"
             onMouseEnter={this.onMouseOverStars}
-            onMouseLeave={this.onMouseOverStars}
+            onMouseLeave={this.onMouseLeaveStars}
           >
             <Stars rating={ratingAverage()} />
             <img className="carrot" src="https://s3.us-east-2.amazonaws.com/product-summary-component/downCarrot.png" alt="material carrot" />
-            { mouseOverStars || mouseOverTooltip || inTransistion ? (
+          </div>
+          { mouseOverStars || mouseOverTooltip || inTransistion ? (
+            <div
+              onMouseEnter={this.onMouseOverTooltip}
+              onMouseLeave={this.onMouseLeaveTooltip}
+            >
               <StarTooltip
-                onMouseEnter={this.onMouseOverTooltip}
-                onMouseLeave={this.onMouseOverTooltip}
+                animationCounter={animationCounter}
                 ratingAvg={ratingAverage()}
                 ratingsObj={
                   {
@@ -104,9 +137,10 @@ class Summary extends React.Component {
                   }
                 }
               />
-            ) : ''
+
+            </div>
+          ) : ''
             }
-          </div>
           <a className="reviews" href="?">{`${product.review_count} customer reviews`}</a>
           <span> | </span>
           <a className="questions" href="?">{`${product.question_count} answered questions`}</a>
