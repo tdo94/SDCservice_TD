@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [0.2.2] - SPA Express Routing - 2019-02-19
+### Added
+- Express SPA Routing
+
+## [0.2.1] - Proxy Server Hotfix - 2019-02-19
+### Added
+- PostInstall Script
+
+### Changed
+- ReactDOM Document ID mount point to "#product-gallery-summary"
+
 ## [0.2.0] - Image Zoom - 2019-02-15
 ### Added
 - Image Zoom
