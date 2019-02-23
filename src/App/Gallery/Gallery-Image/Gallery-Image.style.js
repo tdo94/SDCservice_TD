@@ -12,7 +12,7 @@ export const Container = styled.div`
   }
   p {
     font-family: lato, sans-serif;
-    font-size: 9px;
+    font-size: 13px;
     text-align: center;
   }
 `;

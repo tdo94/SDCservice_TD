@@ -79,6 +79,7 @@ class GalleryImage extends React.Component {
             onMouseEnter={this.onMouseEnter}
             onMouseMove={this.onMouseMove}
             onMouseLeave={this.onMouseLeave}
+            key={image}
             id="selectedImg"
             src={image}
             alt="example"

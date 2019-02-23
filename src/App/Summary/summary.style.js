@@ -14,7 +14,7 @@ export const Container = styled.div`
 
 export const Title = styled.div`
   h5 {
-    font-size: 17px;
+    font-size: 21px;
     margin: 0px;
   }
   a {
@@ -26,9 +26,9 @@ export const Title = styled.div`
     text-decoration: underline;
   }
   p {
-    font-size: 9px;
+    font-size: 13px;
     margin-top: 1px;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     span {
       color: #0066c0;
     }
@@ -49,13 +49,16 @@ export const Stats = styled.div`
   }
   a, span {
     margin-left: 2px;
-    font-size: 9px;
+    font-size: 13px;
   }
   img {
-    height: 12px;
+    height: 16px;
   }
   div.stars {
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   img.carrot {
     margin-right: 3px;
@@ -75,7 +78,7 @@ export const Price = styled.div`
     margin-top: 2px;
     margin-bottom: 2px;
     p {
-      font-size: 9px;
+      font-size: 13px;
       margin-top: 0px;
       margin-bottom: 0px;
       margin-right: 4px;
@@ -89,10 +92,10 @@ export const Price = styled.div`
     }
   }
   div.discoverBonus {
-    margin-top: 10px;
+    margin-top: 4px;
     margin-bottom: 10px;
     p {
-      font-size: 9px;
+      font-size: 13px;
       margin-top: 0px;
       margin-bottom: 0px;
     }
@@ -105,7 +108,7 @@ export const Price = styled.div`
 export const Description = styled.ul`
   padding: 0px;
   margin-left: 15px;
-  font-size: 9px;
+  font-size: 13px;
   li {
     padding-left: 3px;
     color: #949494;
@@ -120,7 +123,7 @@ export const Links = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 9px;
+  font-size: 13px;
   a {
     text-decoration: none;
     color: #0066c0;

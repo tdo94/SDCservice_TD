@@ -17,6 +17,15 @@ export default class Gallery extends React.Component {
     this.handleImageHover = this.handleImageHover.bind(this);
   }
 
+  // eslint-disable-next-line consistent-return
+  static getDerivedStateFromProps(props, currentState) {
+    if (!props.images.includes(currentState.currentImg)) {
+      return {
+        currentImg: props.images[0],
+      };
+    }
+  }
+
   handleImageHover(event) {
     const selectedImageId = event.target.id.split('-')[1];
     const images = document.querySelectorAll('img.pickerImage');
@@ -42,7 +51,7 @@ export default class Gallery extends React.Component {
           images={images}
           handleImageHover={this.handleImageHover}
         />
-        <GalleryImage image={currentImg} />
+        <GalleryImage key={currentImg} image={currentImg} />
       </Container>
     );
   }

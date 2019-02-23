@@ -10,7 +10,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   a {
-    font-size: 9px;
+    font-size: 12px;
     text-decoration: none;
     color: #555;
   }
