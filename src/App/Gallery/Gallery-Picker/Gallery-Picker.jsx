@@ -9,10 +9,10 @@ const GalleryPicker = ({ images, handleImageHover }) => {
   const imagesDivs = images.map((value, index) => (
     <div key={value}>
       <img
+        className={index === 0 ? 'selected pickerImage' : 'pickerImage'}
         onMouseOver={handleImageHover}
         onFocus={handleImageHover}
         id={`pickerImage-${index}`}
-        className="pickerImage"
         src={value}
         alt={`${index}`}
       />
