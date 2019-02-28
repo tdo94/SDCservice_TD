@@ -1,7 +1,7 @@
 # CRUD API 
 
 # CREATE
-POST   /api/products
+```POST   /api/products
 
 Request:
 Content-Type: 'json/application'
@@ -36,9 +36,10 @@ status: 201 OK
 
 Error:
 status: 400 Bad Request
+```
 
 # READ
-
+```
 --For a single product 
     GET    /api/products/:id
 
@@ -105,9 +106,10 @@ status: 400 Bad Request
 
     Errors:
     status: 404 Not Found
+```
 
 # UPDATE
-
+```
 PUT    /api/products/:id
 
 id    :    Product's id. Type: Number
@@ -150,9 +152,9 @@ Returned data is the updated item.
 Errors:
 status: 204 No Content
 (can't find item to update)
-
+```
 # DELETE
-
+```
 DELETE    /api/products/:id
 
 id    :    Product's id. Type: Number
@@ -162,3 +164,4 @@ status: 200 OK
 
 Error:
 status: 204 No Content
+```
