@@ -14,6 +14,7 @@ seedScript();
 
 app.use(compression());
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 app.use(express.static(`${__dirname}/dist`));
 app.use('/api/products', cors(), productRoutes);
