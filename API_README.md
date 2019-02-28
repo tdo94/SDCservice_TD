@@ -83,7 +83,7 @@ PRODUCT INFO:
     status: 404 Not Found
 ```
 ```
-PROPERTIES:
+PROPERTIES:\n\
 id:                       Product's id in the database
 unique_id:                Created product's id upon creation
 name:                     Product's name
