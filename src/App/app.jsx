@@ -18,6 +18,7 @@ export default class App extends React.Component {
         name: 'Amazon Product 1',
         category: 'electronics',
         manufacturer: 'Murazik and Sons',
+        // primary_image: 'https://picsum.photos/200/300/?random',
         primary_image: 'https://s3.us-east-2.amazonaws.com/product-summary-component/electronics1.jpg',
         review_one_star_count: 624,
         review_two_star_count: 639,

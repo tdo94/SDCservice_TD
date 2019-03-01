@@ -1,6 +1,6 @@
 module.exports = {
   createTableQueries: `
-    DROP TABLE IF EXISTS products, product_variations;
+    DROP TABLE IF EXISTS products;
 
     CREATE TABLE "products" (
       "id" SERIAL PRIMARY KEY,
@@ -21,12 +21,6 @@ module.exports = {
       "stock" int,
       "is_prime" boolean,
       "description" varchar(1000)
-    );
-    
-    CREATE TABLE "product_variations" (
-      "id" SERIAL PRIMARY KEY,
-      "product_first_id" int REFERENCES products(id),
-      "product_second_id" int REFERENCES products(id)
     );
   `,
   createProductQuery: `

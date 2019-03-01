@@ -32,10 +32,10 @@ async function seedScript() {
 
       const values = [
         i,
-        generateName(i),
+        generateName(),
         generateCategory(i),
-        generateManufacturer(i),
-        generateImage(generateCategory(i), i),
+        generateManufacturer(),
+        generateImage(),
         ...reviews,
         generateRandomCount(),
         ...prices,
@@ -55,5 +55,5 @@ async function seedScript() {
   await client.end();
 }
 
-seedScript();
+
 module.exports = seedScript;
