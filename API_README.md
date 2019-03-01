@@ -28,12 +28,14 @@ Body:
 }
 ```
 PROPERTIES:
+```
 name:           Product's name
 category:       A single category to which this product associated
 manufacture:    This product's origin/ seller
 primary_image:  primary image of the product
 price:          Price of the product
 description:    Product's description
+```
 ```
 Response:
 status: 201 OK
@@ -42,8 +44,11 @@ status: 201 OK
   "unique_id": Number,
 }
 ```
+PROPERTIES:
+```
 id:            product's id in the database
 unique_id:     created product's id upon creation
+```
 ```
 
 Error:
@@ -83,7 +88,7 @@ PRODUCT INFO:
     status: 404 Not Found
 ```
 ```
-PROPERTIES:\n\
+PROPERTIES:
 id:                       Product's id in the database
 unique_id:                Created product's id upon creation
 name:                     Product's name
