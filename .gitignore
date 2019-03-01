@@ -5,6 +5,9 @@
 config.js
 dist
 
+### csv ###
+*.csv
+
 ### Jest ###
 
 *__snapshots__/

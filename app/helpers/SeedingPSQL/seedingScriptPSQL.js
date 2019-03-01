@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const {
   generateName,
   generateCategory,
@@ -31,14 +33,14 @@ function generateProductData(writer, callback) {
   function write() {
     let ok = true;
     do {
-      const values = `${i},${generateName(i)},${generateCategory(i)},${generateManufacturer()},${generateRandomCount()},${generateRandomCount()},${generateRandomBoolean()},${generateDescription(i)}\n`;
-      i--;
-      if (i === 100) {
+      const values = `${i}|${generateName(i)}|${generateCategory(i)}|${generateManufacturer()}|${generateRandomCount()}|${generateRandomCount()}|${generateRandomBoolean()}|${generateDescription(i)}\n`;
+      i++;
+      if (i === 10000000) {
         writer.write(values, () => callback('All data have been written'));
       } else {
         ok = writer.write(values);
       }
-    } while (i <= 100 && ok);
+    } while (i <= 10000000 && ok);
     if (i > 0) {
       writer.once('drain', write);
     }
