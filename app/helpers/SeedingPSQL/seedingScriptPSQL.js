@@ -7,33 +7,79 @@ const {
   generateRandomCount,
   generateRandomBoolean,
   generateDescription,
+  generateImage,
 } = require('../seedingHelperFunctions');
 
-// const generateProductData = () => {
-//   for (let i = 1; i <= 10000000; i += 1) {
-//     const values = [
-//       i,
-//       generateName(i),
-//       generateCategory(i),
-//       generateManufacturer(),
-//       generateRandomCount(),
-//       generateRandomCount(),
-//       generateRandomBoolean(),
-//       generateDescription(),
-//     ];
-//     console.log(values.join('|'));
+// TO GENERATE PRODUCT DATA, UNCOMMENT BELOW TILL ******, COMMENT EVERY OTHER FUNCTIONS OUT
+
+// function generateProductData(writer, callback) {
+//   let i = 1;
+//   function write() {
+//     let ok = true;
+//     do {
+//       const values = `${i}|${generateName(i)}|${generateCategory(i)}|${generateManufacturer()}|${generateRandomCount()}|${generateRandomCount()}|${generateRandomBoolean()}|${generateDescription(i)}\n`;
+//       i++;
+//       if (i === 10000000) {
+//         writer.write(values, () => callback('All data have been written'));
+//       } else {
+//         ok = writer.write(values);
+//       }
+//     } while (i <= 10000000 && ok);
+//     if (i > 0) {
+//       writer.once('drain', write);
+//     }
 //   }
-// };
+//   write();
+// }
 
-// generateProductData();
+// const writer = fs.createWriteStream('csvFiles/products.csv');
 
-function generateProductData(writer, callback) {
+// *****************************************
+
+
+// TO GENERATE PRODUCT DATA, UNCOMMENT BELOW TILL ******, COMMENT EVERY OTHER FUNCTIONS OUT
+
+// function generateReviewData(writer, callback) {
+//   let i = 1;
+//   function write() {
+//     let ok = true;
+//     do {
+//       const reviews = [];
+//       for (let b = 0; b < 5; b++) {
+//         reviews.push(generateRandomCount());
+//       }
+//       reviews.push(reviews.reduce((total, value) => total + value));
+
+//       const values = `${reviews.join('|')}|${i}\n`;
+//       i++;
+//       if (i === 10000000) {
+//         writer.write(values, () => callback('All data have been written'));
+//       } else {
+//         ok = writer.write(values);
+//       }
+//     } while (i <= 10000000 && ok);
+//     if (i > 0) {
+//       writer.once('drain', write);
+//     }
+//   }
+//   write();
+// }
+
+// const writer = fs.createWriteStream('csvFiles/reviews.csv');
+
+// generateReviewData(writer, console.log);
+
+// *****************************************
+
+
+// TO GENERATE IMAGE DATA, UNCOMMENT BELOW TILL ******, COMMENT EVERY OTHER FUNCTIONS OUT
+
+function generateImageData(writer, callback) {
   let i = 1;
-  write();
   function write() {
     let ok = true;
     do {
-      const values = `${i}|${generateName(i)}|${generateCategory(i)}|${generateManufacturer()}|${generateRandomCount()}|${generateRandomCount()}|${generateRandomBoolean()}|${generateDescription(i)}\n`;
+      const values = `${generateImage()}|${i}\n${generateImage()}|${i}\n`;
       i++;
       if (i === 10000000) {
         writer.write(values, () => callback('All data have been written'));
@@ -45,8 +91,9 @@ function generateProductData(writer, callback) {
       writer.once('drain', write);
     }
   }
+  write();
 }
 
-const writer = fs.createWriteStream('./product.csv');
+const writer = fs.createWriteStream('csvFiles/images.csv');
 
-generateProductData(writer, console.log);
+generateImageData(writer, console.log);

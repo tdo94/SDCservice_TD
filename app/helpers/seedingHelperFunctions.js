@@ -18,7 +18,7 @@ module.exports = {
     return categoryArr[number % 10];
   },
   generateManufacturer: () => faker.company.companyName(),
-  generateImage: () => 'https://picsum.photos/1000/500/?random',
+  generateImage: () => faker.image.image(),
   // generateImage: (category, number) => `https://s3.us-east-2.amazonaws.com/product-summary-component/${category}${number}.jpg`,
   generateRandomCount: () => faker.random.number({
     min: 20,
