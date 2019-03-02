@@ -1,10 +1,7 @@
 module.exports = {
   createTableQueries: `
-    DROP TABLE IF EXISTS products, images, reviews;
-
     CREATE TABLE "products" (
       "id" int,
-      "unique_id" int,
       "name" text,
       "category" text,
       "manufacturer" text,
@@ -19,7 +16,10 @@ module.exports = {
       "price" int,
       "is_prime" boolean,
       "description" text,
-      PRIMARY KEY (id)
+      PRIMARY KEY(id)
     );
   `,
 };
+
+/* eslint-disable */
+// COPY products(id, name, category, manufacturer, images, review_one_star_count, review_two_star_count, review_three_star_count, review_four_star_count, review_five_star_count, review_count, question_count, price, is_prime, description) FROM '/Users/trangdo/Study/Hack reactor/SDC/SDCservice_TD/csvFiles/allCQL.csv' WITH DELIMITER = '|';
