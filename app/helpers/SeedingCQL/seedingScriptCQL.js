@@ -1,26 +1,45 @@
-module.exports = {
-  createTableQueries: `
-    DROP TABLE IF EXISTS products, images, reviews;
+const fs = require('fs');
 
-    CREATE TABLE "products" (
-      "id" int,
-      "unique_id" int,
-      "name" text,
-      "category" text,
-      "manufacturer" text,
-      "images" list<text>,
-      "review_one_star_count" int,
-      "review_two_star_count" int,
-      "review_three_star_count" int,
-      "review_four_star_count" int,
-      "review_five_star_count" int,
-      "review_count" int,
-      "question_count" int,
-      "price" int,
-      "stock" int,
-      "is_prime" boolean,
-      "description" text,
-      PRIMARY KEY (id)
-    );
-  `,
-};
+const {
+  generateName,
+  generateCategory,
+  generateManufacturer,
+  generateRandomCount,
+  generateRandomBoolean,
+  generateDescription,
+  generateImage,
+} = require('../seedingHelperFunctions');
+
+
+function generateData(writer, callback) {
+  let i = 1;
+  function write() {
+    let ok = true;
+    do {
+      const reviews = [];
+      for (let b = 0; b < 5; b++) {
+        reviews.push(generateRandomCount());
+      }
+      reviews.push(reviews.reduce((total, value) => total + value));
+
+      const images = [generateImage(), generateImage()];
+
+      const values = `${i}|${generateName(i)}|${generateCategory(i)}|${generateManufacturer()}|[${images}]|${reviews.join('|')}|${generateRandomCount()}|${generateRandomCount()}|${generateRandomBoolean()}|${generateDescription(i)}\n`;
+      i++;
+      if (i === 10) {
+        writer.write(values, () => callback('All data have been written'));
+      } else {
+        ok = writer.write(values);
+      }
+    } while (i <= 10 && ok);
+    if (i > 0) {
+      writer.once('drain', write);
+    }
+  }
+  write();
+}
+
+
+const writer = fs.createWriteStream('csvFiles/allCQL.csv');
+
+generateData(writer, console.log);
