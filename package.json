@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "npx webpack --mode='production' && node server.js",
     "test": "jest --coverage --reporters default jest-stare",
-    "start": "node server.js",
+    "start": "npx webpack --watch --mode='production' & nodemon server.js",
     "devStart": "nodemon server.js",
     "devServer": "webpack-dev-server --open",
     "seed": "node app/helpers/seedingScript.js"

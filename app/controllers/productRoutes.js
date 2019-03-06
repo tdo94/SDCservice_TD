@@ -12,7 +12,11 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   const product = await Products.getOne(id);
-  res.send(product.rows[0]);
+  const data = product.rows[0];
+  data.primary_image = data.link;
+  data.secondary_image = product.rows[1].link;
+  delete data.link;
+  res.send(data);
 });
 
 module.exports = router;
