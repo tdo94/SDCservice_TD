@@ -71,7 +71,7 @@ PRODUCT INFO:
       "name": String (i.e: "Product 1"),
       "category": String (i.e: "electronics"),
       "manufacturer": String (i.e: "Bogisich Inc"),
-      "primary_image": String (i.e: "https://s3.us-east-2.amazonaws.com/product-summary-component/electronics1.jpg"),
+      "primary_image": String (i.e: "https://example/image1.jpg"),
       "review_one_star_count": Number (i.e: 852),
       "review_two_star_count": Number (i.e: 556),
       "review_three_star_count": Number (i.e: 986),
