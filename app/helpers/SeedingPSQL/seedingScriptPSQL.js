@@ -12,41 +12,7 @@ const {
 
 // TO GENERATE PRODUCT DATA, UNCOMMENT BELOW TILL ******, COMMENT EVERY OTHER FUNCTIONS OUT
 
-function generateProductData(writer, callback) {
-  let i = 1;
-  function write() {
-    let ok = true;
-    do {
-      const reviews = [];
-      for (let b = 0; b < 5; b++) {
-        reviews.push(generateRandomCount());
-      }
-      reviews.push(reviews.reduce((total, value) => total + value));
-
-      const values = `${generateName(i)}|${generateCategory(i)}|${generateManufacturer()}|${generateRandomCount()}|${generateRandomCount()}|${generateRandomBoolean()}|${generateDescription(i)}|${reviews.join('|')}\n`;
-      i++;
-      if (i === 10000000) {
-        writer.write(values, () => callback('All data have been written'));
-      } else {
-        ok = writer.write(values);
-      }
-    } while (i <= 10000000 && ok);
-    if (i > 0) {
-      writer.once('drain', write);
-    }
-  }
-  write();
-}
-
-const writer = fs.createWriteStream('csvFiles/products.csv');
-generateProductData(writer, console.log);
-
-// *****************************************
-
-
-// TO GENERATE PRODUCT DATA, UNCOMMENT BELOW TILL ******, COMMENT EVERY OTHER FUNCTIONS OUT
-
-// function generateReviewData(writer, callback) {
+// function generateProductData(writer, callback) {
 //   let i = 1;
 //   function write() {
 //     let ok = true;
@@ -57,7 +23,7 @@ generateProductData(writer, console.log);
 //       }
 //       reviews.push(reviews.reduce((total, value) => total + value));
 
-//       const values = `${reviews.join('|')}|${i}\n`;
+//       const values = `${generateName(i)}|${generateCategory(i)}|${generateManufacturer()}|${generateRandomCount()}|${generateRandomCount()}|${generateRandomBoolean()}|${generateDescription(i)}|${reviews.join('|')}\n`;
 //       i++;
 //       if (i === 10000000) {
 //         writer.write(values, () => callback('All data have been written'));
@@ -72,9 +38,8 @@ generateProductData(writer, console.log);
 //   write();
 // }
 
-// const writer = fs.createWriteStream('csvFiles/reviews.csv');
-
-// generateReviewData(writer, console.log);
+// const writer = fs.createWriteStream('csvFiles/products.csv');
+// generateProductData(writer, console.log);
 
 // *****************************************
 
