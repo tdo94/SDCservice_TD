@@ -14,45 +14,37 @@ Body:
   "manufacturer": String,
   "primary_image": String,
   "secondary_image": String,
-  "review_one_star_count": Number,
-  "review_two_star_count": Number,
-  "review_three_star_count": Number,
-  "review_four_star_count": Number,
-  "review_five_star_count": Number,
-  "review_count": Number,
-  "question_count": Number,
   "price": Number,
-  "total_price": Number,
-  "stock": Number,
   "is_prime": Boolean,
   "description": String
 }
 ```
 PROPERTIES:
 ```
-name:           Product's name
-category:       A single category to which this product associated
-manufacture:    This product's origin/ seller
-primary_image:  primary image of the product
-price:          Price of the product
-description:    Product's description
+name:             Product's name
+category:         A single category to which this product associated
+manufacture:      This product's origin/ seller
+primary_image:    Primary image of the product
+secondary_image:  Secondary image of the product
+price:            Price of the product
+description:      Product's description
 ```
 ```
 Response:
 status: 201 OK
 {
   "id": Number,
-  "unique_id": Number,
 }
 ```
 PROPERTIES:
 ```
-id:            product's id in the database
+id:            Product's id in the database
 ```
 ```
 
 Error:
 status: 400 Bad Request
+Field(s) is missing
 ```
 
 # READ
@@ -86,15 +78,16 @@ PRODUCT INFO:
 
     Errors:
     status: 404 Not Found
+    No such product
 ```
 ```
 PROPERTIES:
 id:                       Product's id in the database
-unique_id:                Created product's id upon creation
 name:                     Product's name
 category:                 A single category to which this product associated
 manufacture:              This product's origin/ seller
 primary_image:            Link to primary image of the product
+secondary_image:          Link to secondary image of the product
 review_one_star_count:    Number of review that gave 1 star to the product
 review_two_star_count:    Number of review that gave 2 star to the product
 review_three_star_count:  Number of review that gave 3 star to the product
@@ -107,7 +100,7 @@ price:                    Price of the product
 description:              Product's description
 ```
 
---For all products 
+--For 5 products with the most number of reviews:
 ```
     GET    /api/products
 
@@ -116,7 +109,6 @@ description:              Product's description
     [
       {
         "id": Number,
-        "unique_id": Number,
         "name": String,
         "category": String,
         "manufacturer": String,
@@ -124,7 +116,6 @@ description:              Product's description
       },
       {
         "id": Number,
-        "unique_id": Number,
         "name": String,
         "category": String,
         "manufacturer": String,
@@ -132,35 +123,26 @@ description:              Product's description
       },
       {
         "id": Number,
-        "unique_id": Number,
+        "name": String,
+        "category": String,
+        "manufacturer": String,
+        ...
+      },
+      {
+        "id": Number,
+        "name": String,
+        "category": String,
+        "manufacturer": String,
+        ...
+      },
+      {
+        "id": Number,
         "name": String,
         "category": String,
         "manufacturer": String,
         ...
       }
     ]
-
-    Errors:
-    status: 404 Not Found
-```
-REVIEWS:
---All reviews for a certain product id
-```
-    GET    /api/productreview/:id
-
-    id    :    Product's id. Type: Number
-
-    Response:
-    status: 200 OK
-    {
-      "rating": Number,
-      "total_reviews": Number,
-      "no_one_start_reviews": Number,
-      "no_two_start_reviews": Number,
-      "no_three_start_reviews": Number,
-      "no_four_start_reviews": Number,
-      "no_five_start_reviews": Number,
-    }
 
     Errors:
     status: 404 Not Found
@@ -180,6 +162,7 @@ Body:
   "category": String,
   "manufacturer": String,
   "primary_image": String,
+  "secondary_image": String,
   "review_one_star_count": Number,
   "review_two_star_count": Number,
   "review_three_star_count": Number,
@@ -189,18 +172,17 @@ Body:
   "question_count": Number,
   "price": Number,
   "total_price": Number,
-  "stock": Number,
   "is_prime": Boolean,
   "description": String
 }
 ```
-** All fields not needed, only put in the information to be updated
+** All field needed for update. Update data can be the same with the previous record.
+
 ```
 Response:
 status: 200 OK
 {
   "id": Number,
-  "unique_id": Number,
   "name": String,
   "category": String,
   "manufacturer": String,
@@ -222,8 +204,12 @@ id    :    Product's id. Type: Number
 
 Response: 
 status: 200 OK
+{
+  "row Deleted":3
+}
 
 Error:
 status: 204 No Content
 ```
 Delete action will remove the product with the given id from the database
+The return response will tell you how many lines got deleted from all combined tables.
