@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -28,5 +29,15 @@ app.get('*', (req, res) => {
   res.redirect('/products/1');
 });
 
-app.listen(3000);
-console.log('Listening on localhost:3000');
+app.listen(3000, () => {
+  console.log('Listening on localhost:3000');
+});
+// app.listen(3001, () => {
+//   console.log('Listening on localhost:3001');
+// });
+// app.listen(3002, () => {
+//   console.log('Listening on localhost:3002');
+// });
+// app.listen(3003, () => {
+//   console.log('Listening on localhost:3003');
+// });

@@ -23,11 +23,11 @@ router.get('/:id', async (req, res) => {
   if (product.rows.length === 0) {
     res.status(404).end();
   } else {
-    const data = product.rows[0];
-    data.primary_image = data.link;
-    data.secondary_image = product.rows[1].link;
-    delete data.link;
-    res.send(data);
+    // const data = product.rows[0];
+    product.rows[0].primary_image = product.rows[0].link;
+    product.rows[0].secondary_image = product.rows[1].link;
+    // delete data.link;
+    res.status(200).send(product.rows[0]);
   }
 });
 

@@ -1,8 +1,8 @@
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
 const { database } = require('../../config');
 
-const client = new Client(database);
+const client = new Pool(database);
 client.connect((err) => {
   if (err) {
     console.error('Failed to connect to db', err.stack);
@@ -18,7 +18,7 @@ const getFive = async () => {
 
 const getOne = async (id) => {
   const res = await client.query(`
-  SELECT products.*, images.link FROM products, images WHERE products.id = ${id} AND images.product_id = products.id; 
+  SELECT * FROM products, images WHERE products.id = ${id} AND images.product_id = ${id}; 
   `);
   return res;
 };
