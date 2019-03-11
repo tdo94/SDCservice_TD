@@ -4,7 +4,7 @@
 
 newrelic.js
 config.js
-dist
+bundle.js
 
 ### csv ###
 *.csv
