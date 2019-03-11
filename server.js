@@ -29,7 +29,7 @@ app.get('*', (req, res) => {
   res.redirect('/products/1');
 });
 
-app.listen(3000, () => {
+app.listen(80, () => {
   console.log('Listening on localhost:3000');
 });
 // app.listen(3001, () => {
