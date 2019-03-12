@@ -1,6 +1,6 @@
 require('newrelic');
 const express = require('express');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const compression = require('compression');
@@ -12,24 +12,26 @@ const productRoutes = require('./app/controllers/productRoutes');
 
 app.use(compression());
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.use(express.static(`${__dirname}/dist`));
 app.use('/api/products', cors(), productRoutes);
 
-app.get('/api/bundle', (req, res) => {
-  res.sendFile(`${__dirname}/dist/bundle.js`);
-});
+// app.get('/api/bundle', (req, res) => {
+//   res.sendFile(`${__dirname}/dist/bundle.js`);
+// });
 
 app.get('/products/:id', (req, res) => {
   res.sendFile(`${__dirname}/dist/index.html`);
 });
 
-app.get('*', (req, res) => {
-  res.redirect('/products/1');
-});
+// app.get('*', (req, res) => {
+//   res.redirect('/products/1');
+// });
 
-app.listen(80, () => {
+// app.use('products/:id', express.static(`${__dirname}/dist`));
+
+app.listen(3000, () => {
   console.log('Listening on localhost:3000');
 });
 // app.listen(3001, () => {
