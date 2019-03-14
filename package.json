@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --coverage --reporters default jest-stare",
-    "start": "npx webpack --watch --mode='production' & nodemon server.js",
+    "start": "webpack --watch --mode='production' && node server.js",
     "devStart": "node server.js",
     "devServer": "webpack-dev-server --open",
     "seed": "node app/helpers/seedingScript.js"
